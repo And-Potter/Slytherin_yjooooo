@@ -13,10 +13,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        initBtnClickEvent()
+        setOnLoginBtnClick()
     }
 
-    private fun initBtnClickEvent() {
+    private fun setOnLoginBtnClick() {
         mainBinding.btnLogin.setOnClickListener {
             val id = mainBinding.edtId.text
             val pw = mainBinding.edtPw.text
