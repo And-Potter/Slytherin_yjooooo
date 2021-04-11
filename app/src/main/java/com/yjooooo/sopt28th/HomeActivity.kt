@@ -7,32 +7,32 @@ import androidx.appcompat.app.AppCompatActivity
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("LifeCycle", "onCreate")
+        Log.d("LifeCycle", "Home_onCreate")
         setContentView(R.layout.activity_home)
     }
 
     override fun onStart() {
         super.onStart()
-        Log.d("LifeCycle", "onStart")
+        Log.d("LifeCycle", "Home_onStart")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d("LifeCycle", "onResume")
+        Log.d("LifeCycle", "Home_onResume")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.d("LifeCycle", "onPause")
+        Log.d("LifeCycle", "Home_onPause")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.d("LifeCycle", "onStop")
+        Log.d("LifeCycle", "Home_onStop")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d("LifeCycle", "onDestroy")
+        Log.d("LifeCycle", "Home_onDestroy")
     }
 }

@@ -21,7 +21,7 @@ class SignInActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("LifeCycle", "onCreate")
+        Log.d("LifeCycle", "SignIn_onCreate")
         signInBinding = DataBindingUtil.setContentView(this, R.layout.activity_sign_in)
         setOnLoginBtnClick()
         setOnSignUpBtnClick()
@@ -29,27 +29,27 @@ class SignInActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        Log.d("LifeCycle", "onStart")
+        Log.d("LifeCycle", "SignIn_onStart")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d("LifeCycle", "onResume")
+        Log.d("LifeCycle", "SignIn_onResume")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.d("LifeCycle", "onPause")
+        Log.d("LifeCycle", "SignIn_onPause")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.d("LifeCycle", "onStop")
+        Log.d("LifeCycle", "SignIn_onStop")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d("LifeCycle", "onDestroy")
+        Log.d("LifeCycle", "SignIn_onDestroy")
     }
 
     private fun setOnLoginBtnClick() {

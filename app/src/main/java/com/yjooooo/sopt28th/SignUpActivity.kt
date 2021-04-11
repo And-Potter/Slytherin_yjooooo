@@ -13,34 +13,34 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var signUpBinding: ActivitySignUpBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("LifeCycle", "onCreate")
+        Log.d("LifeCycle", "SignUp_onCreate")
         signUpBinding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up)
         setOnSignUpBtnClick()
     }
 
     override fun onStart() {
         super.onStart()
-        Log.d("LifeCycle", "onStart")
+        Log.d("LifeCycle", "SignUp_onStart")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d("LifeCycle", "onResume")
+        Log.d("LifeCycle", "SignUp_onResume")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.d("LifeCycle", "onPause")
+        Log.d("LifeCycle", "SignUp_onPause")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.d("LifeCycle", "onStop")
+        Log.d("LifeCycle", "SignUp_onStop")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d("LifeCycle", "onDestroy")
+        Log.d("LifeCycle", "SignUp_onDestroy")
     }
 
     private fun setOnSignUpBtnClick() {

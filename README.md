@@ -39,6 +39,7 @@
     - ActivityResultCallback : ActivityResultContract에 정의된 출력 유형의 객체를 가져오는 onActivityResult()가 포함된 단일 메소드 인터페이스
     - 입력이 있으면 ActivityResultLauncher는 ActivityResultContract 유형과 일치하는 입력을 가져옴.
       - lanuch()를 호출하면 결과를 생성하는 프로세스가 시작됨. 사용자가 후속 활동을 완료하고 반환하면 ActivityResultCallback의 onActivityResult()가 실행됨.
+      - 아래의 코드처럼 내가 결과값을 받아오고 싶은 Activity별로 Launcher를 생성하고 각각 launch()를 호출함 => 각각의 Launcher에서 어떤 Activity로 실행하는지 알고있기때문에 onActivityResult()에서 처리해줬을때와 달리 request code가 필요없음.
     - StartActivityForResult를 사용 => Intent를 입력으로 가져오고, ActivityResult를 반환 => resultCode와 Intent를 콜백의 일부로 추출할 수 있음.
 
 - ```kotlin
@@ -68,4 +69,7 @@
   <img width="430" alt="스크린샷 2021-04-11 오후 5 54 10" src="https://user-images.githubusercontent.com/68374234/114298095-9f92ee80-9aef-11eb-9000-cc46b0f4b48a.png">
   <img width="271" alt="스크린샷 2021-04-11 오후 5 53 48" src="https://user-images.githubusercontent.com/68374234/114298106-af123780-9aef-11eb-8349-fd8b502b5672.png">
 </div>
+### 🍭생명주기 Log
+
+<img width="648" alt="스크린샷 2021-04-12 오전 1 10 21" src="https://user-images.githubusercontent.com/68374234/114311962-de469a00-9b2b-11eb-98c0-d7fa926909d1.png">
 
