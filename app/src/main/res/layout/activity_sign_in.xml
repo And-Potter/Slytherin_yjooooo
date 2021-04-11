@@ -11,10 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingHorizontal="20dp"
-        tools:context=".MainActivity">
+        tools:context=".SignInActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint_id"
+            android:id="@+id/sign_in_constraint_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -23,60 +23,95 @@
             app:layout_constraintVertical_bias="0.3">
 
             <TextView
-                android:id="@+id/txt_id"
+                android:id="@+id/sign_in_txt_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="아이디"
+                android:text="Github 아이디"
                 android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/edt_id"
+                android:id="@+id/sign_in_edt_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="ID를 입력해주세요"
-                app:layout_constraintStart_toStartOf="@id/txt_id"
-                app:layout_constraintTop_toBottomOf="@id/txt_id" />
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/sign_in_txt_id"
+                app:layout_constraintTop_toBottomOf="@id/sign_in_txt_id" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint_pw"
+            android:id="@+id/sign_in_constraint_pw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/constraint_id">
+            app:layout_constraintTop_toBottomOf="@id/sign_in_constraint_id">
 
             <TextView
-                android:id="@+id/txt_pw"
+                android:id="@+id/sign_in_txt_pw"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:text="비밀번호"
                 android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/edt_pw"
+                android:id="@+id/sign_in_edt_pw"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="비밀번호를 입력해주세요"
-                app:layout_constraintStart_toStartOf="@id/txt_pw"
-                app:layout_constraintTop_toBottomOf="@id/txt_pw" />
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/sign_in_txt_pw"
+                app:layout_constraintTop_toBottomOf="@id/sign_in_txt_pw" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/sign_in_btn_login"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/constraint_pw" />
+            app:layout_constraintTop_toBottomOf="@id/sign_in_constraint_pw" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="@id/sign_in_btn_login"
+            app:layout_constraintStart_toStartOf="@id/sign_in_btn_login"
+            app:layout_constraintTop_toBottomOf="@id/sign_in_btn_login">
+
+            <TextView
+                android:id="@+id/sign_in_txt_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="아이디/비밀번호가 없으신가요?"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/sign_in_btn_sign_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="회원가입"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/sign_in_txt_info"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

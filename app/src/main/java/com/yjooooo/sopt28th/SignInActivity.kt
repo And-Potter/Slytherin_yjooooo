@@ -6,20 +6,20 @@ import android.os.Bundle
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import androidx.databinding.DataBindingUtil
-import com.yjooooo.sopt28th.databinding.ActivityMainBinding
+import com.yjooooo.sopt28th.databinding.ActivitySignInBinding
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var mainBinding: ActivityMainBinding
+class SignInActivity : AppCompatActivity() {
+    private lateinit var signInBinding: ActivitySignInBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        signInBinding = DataBindingUtil.setContentView(this, R.layout.activity_sign_in)
         setOnLoginBtnClick()
     }
 
     private fun setOnLoginBtnClick() {
-        mainBinding.btnLogin.setOnClickListener {
-            val id = mainBinding.edtId.text
-            val pw = mainBinding.edtPw.text
+        signInBinding.btnLogin.setOnClickListener {
+            val id = signInBinding.edtId.text
+            val pw = signInBinding.edtPw.text
             if (id.isNullOrBlank() || pw.isNullOrBlank()) {
                 Toast.makeText(this, "아이디와 비밀번호를 입력해주세요.", LENGTH_SHORT).show()
             } else {
