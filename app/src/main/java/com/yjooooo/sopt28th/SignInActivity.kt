@@ -2,6 +2,7 @@ package com.yjooooo.sopt28th
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import androidx.activity.result.ActivityResult
@@ -20,9 +21,35 @@ class SignInActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("LifeCycle", "onCreate")
         signInBinding = DataBindingUtil.setContentView(this, R.layout.activity_sign_in)
         setOnLoginBtnClick()
         setOnSignUpBtnClick()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("LifeCycle", "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("LifeCycle", "onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("LifeCycle", "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("LifeCycle", "onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("LifeCycle", "onDestroy")
     }
 
     private fun setOnLoginBtnClick() {
