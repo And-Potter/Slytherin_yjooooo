@@ -5,11 +5,11 @@
 
 <div>
   Login👉
-  <img width="200" src="https://user-images.githubusercontent.com/68374234/114338500-25657700-9b8e-11eb-997d-0d8a2c03121c.gif">  
+  <img height="400" src="https://user-images.githubusercontent.com/68374234/114338500-25657700-9b8e-11eb-997d-0d8a2c03121c.gif">  
   SignUp👉
-  <img width="200" src="https://user-images.githubusercontent.com/68374234/114338507-28606780-9b8e-11eb-928c-e41f87f5902a.gif">
+  <img height="400" src="https://user-images.githubusercontent.com/68374234/114338507-28606780-9b8e-11eb-928c-e41f87f5902a.gif">
   Bonus👉
-  <img width="200" src="https://user-images.githubusercontent.com/68374234/114338513-2ac2c180-9b8e-11eb-8554-adf2f80ff6c2.gif">
+  <img height="400" src="https://user-images.githubusercontent.com/68374234/114338513-2ac2c180-9b8e-11eb-8554-adf2f80ff6c2.gif">
 </div>
 
 
