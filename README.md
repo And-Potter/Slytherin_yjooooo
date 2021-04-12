@@ -5,16 +5,32 @@
 
 <div>
   Login👉
-<img width="200" src="https://user-images.githubusercontent.com/68374234/114297368-28f3f200-9aeb-11eb-8015-80ca0df748b8.gif">  
+  <img width="200" src="https://user-images.githubusercontent.com/68374234/114338500-25657700-9b8e-11eb-997d-0d8a2c03121c.gif">  
   SignUp👉
-  <img width="200" src="https://user-images.githubusercontent.com/68374234/114297373-3315f080-9aeb-11eb-813e-335ef89c2609.gif">
+  <img width="200" src="https://user-images.githubusercontent.com/68374234/114338507-28606780-9b8e-11eb-928c-e41f87f5902a.gif">
+  Bonus👉
+  <img width="200" src="https://user-images.githubusercontent.com/68374234/114338513-2ac2c180-9b8e-11eb-8554-adf2f80ff6c2.gif">
 </div>
 
 
 
+### ✔️과제 현황
+
+- Step1
+  - 화면 전환(o)
+  - 액티비티 간 데이터 전달(o)
+- Step2
+  - 변수이름체크(o)
+  - chain사용(o)
+- Step3
+  - ViewBinding 이름의 뜻이뭘까요?   
+  - 객체지향 어느정도 다뤄보셨나요?  
+  - 아키텍쳐라고 들어보셨나요?  
 
 
-### 🍭strartActivityForResult(), registerActivityForResult()
+
+
+### 🍭strartActivityForResult(), registerForActivityResult()
 
 - <a href = "https://developer.android.com/training/basics/intents/result?hl=ko"> 공식 문서 보러가기</a>
 

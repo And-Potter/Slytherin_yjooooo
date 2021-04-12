@@ -1,20 +1,21 @@
-package com.yjooooo.sopt28th
+package com.yjooooo.sopt28th.ui.signup
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
+import com.yjooooo.sopt28th.R
 import com.yjooooo.sopt28th.databinding.ActivitySignUpBinding
+import com.yjooooo.sopt28th.ui.base.BindingActivity
+import com.yjooooo.sopt28th.util.StatusBarUtil
+import com.yjooooo.sopt28th.util.isEverythingNotBlank
 
-class SignUpActivity : AppCompatActivity() {
-    private lateinit var signUpBinding: ActivitySignUpBinding
+class SignUpActivity : BindingActivity<ActivitySignUpBinding>(R.layout.activity_sign_up) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("LifeCycle", "SignUp_onCreate")
-        signUpBinding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up)
+        StatusBarUtil.setStatusBar(this,resources.getColor(R.color.main_color_purple, null))
         setOnSignUpBtnClick()
     }
 
@@ -44,18 +45,20 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun setOnSignUpBtnClick() {
-        signUpBinding.signUpBtnSignUp.setOnClickListener {
-            val name = signUpBinding.signUpEdtName.text
-            val id = signUpBinding.signUpEdtId.text
-            val pw = signUpBinding.signUpEdtPw.text
-            if (name.isNullOrBlank() || id.isNullOrBlank() || pw.isNullOrBlank()) {
-                Toast.makeText(this, "이름, 아이디, 비밀번호를 모두 입력해주세요.", Toast.LENGTH_SHORT).show()
-            } else {
+        binding.signUpBtnSignUp.setOnClickListener {
+            val name = binding.signUpEdtName.text
+            val id = binding.signUpEdtId.text
+            val pw = binding.signUpEdtPw.text
+            if (isEverythingNotBlank(listOf(name, id, pw))) {
                 val intent = Intent()
-                intent.putExtra("id", id.toString())
-                intent.putExtra("pw", pw.toString())
+                with(intent){
+                    putExtra("id", id.toString())
+                    putExtra("pw", pw.toString())
+                }
                 setResult(Activity.RESULT_OK, intent)
                 finish()
+            } else {
+                Toast.makeText(this, "이름, 아이디, 비밀번호를 모두 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
         }
     }

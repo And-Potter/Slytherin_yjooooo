@@ -1,15 +1,15 @@
-package com.yjooooo.sopt28th
+package com.yjooooo.sopt28th.ui.userinfo
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
+import com.yjooooo.sopt28th.R
 import com.yjooooo.sopt28th.databinding.ActivityUserInfoBinding
+import com.yjooooo.sopt28th.ui.base.BindingActivity
+import com.yjooooo.sopt28th.util.StatusBarUtil
 
-class UserInfoActivity : AppCompatActivity() {
-    private lateinit var userInfoBinding: ActivityUserInfoBinding
+class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>(R.layout.activity_user_info) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        userInfoBinding = DataBindingUtil.setContentView(this, R.layout.activity_user_info)
+        StatusBarUtil.setStatusBar(this,resources.getColor(R.color.main_color_purple, null))
         setFollowingFragmentToWhole()
     }
 

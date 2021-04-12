@@ -1,14 +1,17 @@
-package com.yjooooo.sopt28th
+package com.yjooooo.sopt28th.ui.home
 
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
+import com.yjooooo.sopt28th.R
+import com.yjooooo.sopt28th.databinding.ActivityHomeBinding
+import com.yjooooo.sopt28th.ui.base.BindingActivity
+import com.yjooooo.sopt28th.util.StatusBarUtil
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        StatusBarUtil.setStatusBar(this,resources.getColor(R.color.main_color_purple, null))
         Log.d("LifeCycle", "Home_onCreate")
-        setContentView(R.layout.activity_home)
     }
 
     override fun onStart() {

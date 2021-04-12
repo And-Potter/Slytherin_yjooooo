@@ -1,4 +1,4 @@
-package com.yjooooo.sopt28th
+package com.yjooooo.sopt28th.ui.signin
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,12 +7,15 @@ import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
+import com.yjooooo.sopt28th.R
 import com.yjooooo.sopt28th.databinding.ActivitySignInBinding
+import com.yjooooo.sopt28th.ui.base.BindingActivity
+import com.yjooooo.sopt28th.ui.home.HomeActivity
+import com.yjooooo.sopt28th.ui.signup.SignUpActivity
+import com.yjooooo.sopt28th.util.StatusBarUtil
+import com.yjooooo.sopt28th.util.isEverythingNotBlank
 
-class SignInActivity : AppCompatActivity() {
-    private lateinit var signInBinding: ActivitySignInBinding
+class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_sign_in) {
     private val signUpActivityLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {
@@ -22,7 +25,7 @@ class SignInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("LifeCycle", "SignIn_onCreate")
-        signInBinding = DataBindingUtil.setContentView(this, R.layout.activity_sign_in)
+        StatusBarUtil.setStatusBar(this,resources.getColor(R.color.main_color_purple, null))
         setOnLoginBtnClick()
         setOnSignUpBtnClick()
     }
@@ -53,28 +56,30 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun setOnLoginBtnClick() {
-        signInBinding.signInBtnLogin.setOnClickListener {
-            val id = signInBinding.signInEdtId.text
-            val pw = signInBinding.signInEdtPw.text
-            if (id.isNullOrBlank() || pw.isNullOrBlank()) {
-                Toast.makeText(this, "아이디/비밀번호를 확인해주세요!", LENGTH_SHORT).show()
-            } else {
+        binding.signInBtnLogin.setOnClickListener {
+            val id = binding.signInEdtId.text
+            val pw = binding.signInEdtPw.text
+            if (isEverythingNotBlank(listOf(id, pw))) {
                 Toast.makeText(this, "$id 님 안녕하세요. 로그인되셨습니다.", LENGTH_SHORT).show()
                 startActivity(Intent(this, HomeActivity::class.java))
+            } else {
+                Toast.makeText(this, "아이디/비밀번호를 확인해주세요!", LENGTH_SHORT).show()
             }
         }
     }
 
     private fun setOnSignUpBtnClick() {
-        signInBinding.signInBtnSignUp.setOnClickListener {
+        binding.signInBtnSignUp.setOnClickListener {
             signUpActivityLauncher.launch(Intent(this, SignUpActivity::class.java))
         }
     }
 
     private fun setIdPwAfterSignUp(activityResult: ActivityResult) {
         if (activityResult.resultCode == RESULT_OK) {
-            signInBinding.signInEdtId.setText(activityResult.data!!.getStringExtra("id"))
-            signInBinding.signInEdtPw.setText(activityResult.data!!.getStringExtra("pw"))
+            with(binding) {
+                signInEdtId.setText(activityResult.data!!.getStringExtra("id"))
+                signInEdtPw.setText(activityResult.data!!.getStringExtra("pw"))
+            }
         }
     }
 }
