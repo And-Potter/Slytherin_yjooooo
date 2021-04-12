@@ -4,18 +4,17 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import com.yjooooo.sopt28th.R
 import com.yjooooo.sopt28th.databinding.ActivitySignUpBinding
 import com.yjooooo.sopt28th.ui.base.BindingActivity
 import com.yjooooo.sopt28th.util.StatusBarUtil
-import com.yjooooo.sopt28th.util.isEverythingNotBlank
+import com.yjooooo.sopt28th.util.ToastMessageUtil
 
 class SignUpActivity : BindingActivity<ActivitySignUpBinding>(R.layout.activity_sign_up) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("LifeCycle", "SignUp_onCreate")
-        StatusBarUtil.setStatusBar(this,resources.getColor(R.color.main_color_purple, null))
+        StatusBarUtil.setStatusBar(this, resources.getColor(R.color.main_color_purple, null))
         setOnSignUpBtnClick()
     }
 
@@ -46,20 +45,23 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>(R.layout.activity_
 
     private fun setOnSignUpBtnClick() {
         binding.signUpBtnSignUp.setOnClickListener {
-            val name = binding.signUpEdtName.text
-            val id = binding.signUpEdtId.text
-            val pw = binding.signUpEdtPw.text
-            if (isEverythingNotBlank(listOf(name, id, pw))) {
+            if (isUserInfoNotBlank()) {
                 val intent = Intent()
-                with(intent){
-                    putExtra("id", id.toString())
-                    putExtra("pw", pw.toString())
+                with(intent) {
+                    putExtra("id", binding.signUpEdtId.text.toString())
+                    putExtra("pw", binding.signUpEdtPw.text.toString())
                 }
                 setResult(Activity.RESULT_OK, intent)
                 finish()
             } else {
-                Toast.makeText(this, "이름, 아이디, 비밀번호를 모두 입력해주세요.", Toast.LENGTH_SHORT).show()
+                ToastMessageUtil(this, "이름, 아이디, 비밀번호를 모두 입력해주세요.")
             }
+        }
+    }
+
+    private fun isUserInfoNotBlank(): Boolean {
+        with(binding) {
+            return signUpEdtName.text.isNotBlank() && signUpEdtId.text.isNotBlank() && signUpEdtPw.text.isNotBlank()
         }
     }
 }
