@@ -11,7 +11,7 @@ import com.yjooooo.sopt28th.ui.base.BindingActivity
 import com.yjooooo.sopt28th.ui.home.HomeActivity
 import com.yjooooo.sopt28th.ui.signup.SignUpActivity
 import com.yjooooo.sopt28th.util.StatusBarUtil
-import com.yjooooo.sopt28th.util.ToastMessageUtil
+import com.yjooooo.sopt28th.util.toastMessageUtil
 
 class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_sign_in) {
     private val signUpActivityLauncher = registerForActivityResult(
@@ -56,10 +56,10 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
     private fun setOnLoginBtnClick() {
         binding.signInBtnLogin.setOnClickListener {
             if (isUserInfoNotBlank()) {
-                ToastMessageUtil(this, binding.signInEdtId.text.toString() + "님 로그인되었습니다.")
+                toastMessageUtil(binding.signInEdtId.text.toString() + "님 로그인되었습니다.")
                 startActivity(Intent(this, HomeActivity::class.java))
             } else {
-                ToastMessageUtil(this, "아이디/비밀번호를 확인해주세요!")
+                toastMessageUtil("아이디/비밀번호를 확인해주세요!")
             }
         }
     }
@@ -80,8 +80,6 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
     }
 
     private fun isUserInfoNotBlank(): Boolean {
-        with(binding) {
-            return signInEdtId.text.isNotBlank() && signInEdtPw.text.isNotBlank()
-        }
+        return binding.signInEdtId.text.isNotBlank() && binding.signInEdtPw.text.isNotBlank()
     }
 }

@@ -8,7 +8,7 @@ import com.yjooooo.sopt28th.R
 import com.yjooooo.sopt28th.databinding.ActivitySignUpBinding
 import com.yjooooo.sopt28th.ui.base.BindingActivity
 import com.yjooooo.sopt28th.util.StatusBarUtil
-import com.yjooooo.sopt28th.util.ToastMessageUtil
+import com.yjooooo.sopt28th.util.toastMessageUtil
 
 class SignUpActivity : BindingActivity<ActivitySignUpBinding>(R.layout.activity_sign_up) {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,7 +54,7 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>(R.layout.activity_
                 setResult(Activity.RESULT_OK, intent)
                 finish()
             } else {
-                ToastMessageUtil(this, "이름, 아이디, 비밀번호를 모두 입력해주세요.")
+                toastMessageUtil("이름, 아이디, 비밀번호를 모두 입력해주세요.")
             }
         }
     }
