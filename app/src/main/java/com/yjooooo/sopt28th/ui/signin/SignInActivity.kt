@@ -17,7 +17,7 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
     private val signUpActivityLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {
-        setIdPwAfterSignUp(it)
+        setUserInfoAfterSignUp(it)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,7 +70,7 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
         }
     }
 
-    private fun setIdPwAfterSignUp(activityResult: ActivityResult) {
+    private fun setUserInfoAfterSignUp(activityResult: ActivityResult) {
         if (activityResult.resultCode == RESULT_OK) {
             with(binding) {
                 signInEdtId.setText(activityResult.data!!.getStringExtra("id"))
