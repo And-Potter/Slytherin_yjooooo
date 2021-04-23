@@ -14,4 +14,10 @@
     <string name="sign_up_txt_pw">비밀번호</string>
     <string name="sign_in_txt_id">Github 아이디</string>
     <string name="sign_in_txt_pw">비밀번호</string>
+    <string name="item_rcv_repo_title">레포지토리 이름</string>
+    <string name="item_rcv_repo_info">레포지토리 설명</string>
+    <string name="item_rcv_repo_language">언어</string>
+    <string name="home_profile_info">슬리데린 최고 마법사</string>
+    <string name="home_profile_name">Yunjoo Son</string>
+    <string name="home_profile_id">yjooooo</string>
 </resources>

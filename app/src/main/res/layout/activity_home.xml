@@ -10,6 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:paddingHorizontal="20dp"
         tools:context=".ui.home.HomeActivity">
 
@@ -18,11 +19,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:background="@drawable/bg_home_profile_card"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="16dp">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/home_img_profile"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
@@ -36,9 +39,10 @@
                 android:id="@+id/home_txt_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="yjooooo"
+                android:layout_marginTop="20dp"
+                android:text="@string/home_profile_id"
                 android:textSize="14sp"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/home_img_profile" />
 
@@ -46,22 +50,34 @@
                 android:id="@+id/home_txt_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Yunjoo Son"
-                android:textColor="@color/black"
+                android:text="@string/home_profile_name"
+                android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/home_txt_id"
                 app:layout_constraintTop_toBottomOf="@id/home_txt_id" />
 
             <TextView
+                android:id="@+id/home_txt_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="슬리데린 최고 마법사"
+                android:text="@string/home_profile_info"
                 android:textSize="14sp"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="@id/home_txt_id"
                 app:layout_constraintTop_toBottomOf="@id/home_txt_name" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/home_rcv_repository"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_constraint_profile"
+            tools:listitem="@layout/item_rcv_repository" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
