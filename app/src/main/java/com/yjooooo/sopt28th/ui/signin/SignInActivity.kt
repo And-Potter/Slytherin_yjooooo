@@ -23,7 +23,7 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("LifeCycle", "SignIn_onCreate")
-        StatusBarUtil.setStatusBar(this, resources.getColor(R.color.main_color_purple, null))
+        StatusBarUtil.setStatusBar(this, resources.getColor(R.color.white, null))
         setOnLoginBtnClick()
         setOnSignUpBtnClick()
     }

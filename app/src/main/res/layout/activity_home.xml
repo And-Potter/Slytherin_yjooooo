@@ -11,61 +11,93 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:paddingHorizontal="20dp"
         tools:context=".ui.home.HomeActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/home_constraint_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/bg_home_profile_card"
+            android:background="@color/home_profile_background_purple"
+            android:paddingStart="32dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:padding="16dp">
+            app:layout_constraintTop_toTopOf="parent">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/home_img_profile"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="32dp"
                 android:src="@drawable/img_profile"
                 app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/home_txt_id"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/home_profile_id"
-                android:textSize="14sp"
-                android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/home_img_profile" />
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/home_img_profile"
+                app:layout_constraintStart_toEndOf="@id/home_img_profile"
+                app:layout_constraintTop_toTopOf="@id/home_img_profile">
 
-            <TextView
-                android:id="@+id/home_txt_name"
+                <TextView
+                    android:id="@+id/home_txt_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/home_profile_name"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/home_txt_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_profile_id"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/home_txt_name" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/home_profile_name"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/home_txt_id"
-                app:layout_constraintTop_toBottomOf="@id/home_txt_id" />
+                android:layout_marginTop="12dp"
+                android:src="@drawable/ic_users"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/home_img_profile"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/home_img_vertical_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/ic_profile_vertical_line"
+                app:layout_constraintStart_toStartOf="@id/home_img_profile"
+                app:layout_constraintTop_toBottomOf="@id/home_img_profile"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/home_txt_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:includeFontPadding="false"
                 android:text="@string/home_profile_info"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="@id/home_txt_id"
-                app:layout_constraintTop_toBottomOf="@id/home_txt_name" />
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/home_img_vertical_line"
+                app:layout_constraintStart_toEndOf="@id/home_img_vertical_line"
+                app:layout_constraintTop_toTopOf="@id/home_img_vertical_line" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -73,7 +105,6 @@
             android:id="@+id/home_rcv_repository"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="10dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/home_constraint_profile"

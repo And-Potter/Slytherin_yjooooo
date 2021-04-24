@@ -6,9 +6,9 @@
     <string name="pw_hint">비밀번호를 입력해주세요</string>
     <string name="name_hint">이름 입력해주세요</string>
     <string name="sign_in_btn_login">login</string>
-    <string name="sign_in_txt_no_id">아이디/비밀번호가 없으신가요?</string>
+    <string name="sign_in_txt_no_id">계정이 없으신가요?</string>
     <string name="sign_in_txt_sign_up">회원가입</string>
-    <string name="sign_up_btn_sign_up">signup</string>
+    <string name="sign_up_btn_sign_up">join</string>
     <string name="sign_up_txt_name">이름</string>
     <string name="sign_up_txt_id">Github 아이디</string>
     <string name="sign_up_txt_pw">비밀번호</string>
@@ -20,4 +20,5 @@
     <string name="home_profile_info">슬리데린 최고 마법사</string>
     <string name="home_profile_name">Yunjoo Son</string>
     <string name="home_profile_id">yjooooo</string>
+    <string name="sign_up_title">회원가입</string>
 </resources>

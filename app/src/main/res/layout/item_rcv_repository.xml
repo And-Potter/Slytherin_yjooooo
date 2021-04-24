@@ -3,47 +3,64 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
-    android:background="@drawable/bg_rcv_repository"
     android:layout_marginBottom="10dp">
 
-    <TextView
-        android:id="@+id/rcv_repo_txt_title"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rcv_repo_constraint"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="@string/item_rcv_repo_title"
-        android:textColor="@color/base_text_gray"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:layout_marginStart="32dp"
+        android:layout_marginVertical="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/rcv_repo_view">
 
-    <TextView
-        android:id="@+id/rcv_repo_txt_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="@string/item_rcv_repo_info"
-        android:textColor="@color/base_text_light_gray"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/rcv_repo_txt_title"
-        app:layout_constraintTop_toBottomOf="@id/rcv_repo_txt_title" />
+        <TextView
+            android:id="@+id/rcv_repo_txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/item_rcv_repo_title"
+            android:textColor="@color/base_text_gray"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/rcv_repo_txt_language"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="@string/item_rcv_repo_language"
-        android:textColor="@color/base_text_light_gray"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/rcv_repo_txt_title"
-        app:layout_constraintTop_toBottomOf="@id/rcv_repo_txt_info" />
+        <TextView
+            android:id="@+id/rcv_repo_txt_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/item_rcv_repo_info"
+            android:textColor="@color/base_text_light_gray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/rcv_repo_txt_title"
+            app:layout_constraintTop_toBottomOf="@id/rcv_repo_txt_title" />
+
+        <TextView
+            android:id="@+id/rcv_repo_txt_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/item_rcv_repo_language"
+            android:textColor="@color/base_text_light_gray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/rcv_repo_txt_title"
+            app:layout_constraintTop_toBottomOf="@id/rcv_repo_txt_info" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/rcv_repo_view"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/rcv_repo_view_gray"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
