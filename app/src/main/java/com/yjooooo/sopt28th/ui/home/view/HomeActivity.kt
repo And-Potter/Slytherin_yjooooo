@@ -1,5 +1,6 @@
 package com.yjooooo.sopt28th.ui.home.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
@@ -8,6 +9,7 @@ import com.yjooooo.sopt28th.databinding.ActivityHomeBinding
 import com.yjooooo.sopt28th.ui.base.BindingActivity
 import com.yjooooo.sopt28th.ui.home.adapter.RepoRcvAdapter
 import com.yjooooo.sopt28th.ui.home.viewmodel.HomeViewModel
+import com.yjooooo.sopt28th.ui.userinfo.UserInfoActivity
 import com.yjooooo.sopt28th.util.StatusBarUtil
 
 class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home) {
@@ -19,6 +21,7 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
         homeViewModel.addRepoList()
         setRepoRcvAdapter()
         setRepoListObserver()
+        setOnUserInfoBtnClick()
     }
 
     override fun onStart() {
@@ -57,6 +60,12 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
                     submitList(repoList)
                 }
             }
+        }
+    }
+
+    private fun setOnUserInfoBtnClick() {
+        binding.homeBtnUserInfo.setOnClickListener {
+            startActivity(Intent(this, UserInfoActivity::class.java))
         }
     }
 }

@@ -9,7 +9,7 @@ import com.yjooooo.sopt28th.util.StatusBarUtil
 class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>(R.layout.activity_user_info) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        StatusBarUtil.setStatusBar(this,resources.getColor(R.color.main_color_purple, null))
+        StatusBarUtil.setStatusBar(this, resources.getColor(R.color.white, null))
         setFollowingFragmentToWhole()
     }
 
