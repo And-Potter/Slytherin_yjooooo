@@ -8,7 +8,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.yjooooo.sopt28th.R
 import com.yjooooo.sopt28th.databinding.ActivitySignInBinding
 import com.yjooooo.sopt28th.ui.base.BindingActivity
-import com.yjooooo.sopt28th.ui.home.HomeActivity
+import com.yjooooo.sopt28th.ui.home.view.HomeActivity
 import com.yjooooo.sopt28th.ui.signup.SignUpActivity
 import com.yjooooo.sopt28th.util.StatusBarUtil
 import com.yjooooo.sopt28th.util.toastMessageUtil

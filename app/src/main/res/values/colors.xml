@@ -13,10 +13,13 @@
     <color name="sign_in_btn_login_purple">#BFA8FB</color>
     <color name="sign_up_btn_login_purple">#BFA8FB</color>
     <color name="sign_in_txt_gray">#252525</color>
-    <color name="sign_up_txt_gray">#252525</color>
-    <color name="home_profile_background_purple">#BFA8FB</color>
     <color name="sign_in_bottom_info_gray">#828282</color>
-    <color name="sign_in_edt_gray">#828282</color>
+    <color name="sign_in_edt_gray">#333333</color>
+    <color name="sing_in_edt_hint_gray">#828282</color>
+    <color name="sign_up_txt_gray">#252525</color>
+    <color name="sign_up_edt_gray">#333333</color>
+    <color name="sing_up_edt_hint_gray">#828282</color>
     <color name="sign_up_title_gray">#333333</color>
+    <color name="home_profile_background_purple">#BFA8FB</color>
     <color name="rcv_repo_view_gray">#E0E0E0</color>
 </resources>
