@@ -1,3 +1,57 @@
+# 🚩2nd Week
+
+
+### 🎥실행영상
+
+<div>
+  <img height="400" src="https://user-images.githubusercontent.com/68374234/115982289-daf3e980-a5d4-11eb-8788-ab7f2593c57a.gif">
+</div>
+
+
+
+
+
+### ✔️과제 현황
+
+- Step1
+
+  - Repo RecyclerView 구현
+
+    ```kotlin
+    private fun setRepoRcvAdapter() {
+        binding.homeRcvRepository.adapter = RepoRcvAdapter()
+    }
+    
+    private fun setRepoListObserver() {
+        homeViewModel.repoList.observe(this) { repoList ->
+            repoList.let {
+                if (binding.homeRcvRepository.adapter != null) with(binding.homeRcvRepository.adapter as RepoRcvAdapter) {
+                    submitList(repoList)
+                }
+            }
+        }
+    }
+    ```
+
+  - RecyclerView 아이템 내부 repo name, repo info 긴 경우에 ... 나오도록 처리
+
+    ```xml
+    android:ellipsize="end"
+    android:maxLines="1"
+    ```
+
+- Step2
+
+  - GridLayout을 적용한 RecyclerView 구현(아직x)
+  - 여러 ViewHolder 만들어 RecyclerView 안에 2가지이상의 뷰 보여주기(아직x)
+  - RecyclerView Item 기능 구현하기(아직 x)
+
+- Step3
+
+  - notifyDataSetChanged가 하는 일(아직 x)
+
+
+
 # 🚩1st Week
 
 
