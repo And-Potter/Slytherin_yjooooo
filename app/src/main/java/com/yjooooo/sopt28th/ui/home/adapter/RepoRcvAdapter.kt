@@ -13,7 +13,7 @@ import com.yjooooo.sopt28th.ui.home.model.RepoData
 class RepoRcvAdapter :
     ListAdapter<RepoData, RepoRcvAdapter.RepoRcvViewHolder>(RepoRcvDiffUtil()) {
 
-    inner class RepoRcvViewHolder(private val binding: ItemRcvRepositoryBinding) :
+    class RepoRcvViewHolder(private val binding: ItemRcvRepositoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(repoData: RepoData) {
             binding.repoData = repoData
