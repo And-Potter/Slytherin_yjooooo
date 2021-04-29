@@ -8,7 +8,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.yjooooo.sopt28th.R
 import com.yjooooo.sopt28th.databinding.ActivitySignInBinding
 import com.yjooooo.sopt28th.ui.base.BindingActivity
-import com.yjooooo.sopt28th.ui.home.HomeActivity
+import com.yjooooo.sopt28th.ui.home.view.HomeActivity
 import com.yjooooo.sopt28th.ui.signup.SignUpActivity
 import com.yjooooo.sopt28th.util.StatusBarUtil
 import com.yjooooo.sopt28th.util.toastMessageUtil
@@ -23,7 +23,7 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("LifeCycle", "SignIn_onCreate")
-        StatusBarUtil.setStatusBar(this, resources.getColor(R.color.main_color_purple, null))
+        StatusBarUtil.setStatusBar(this, resources.getColor(R.color.white, null))
         setOnLoginBtnClick()
         setOnSignUpBtnClick()
     }

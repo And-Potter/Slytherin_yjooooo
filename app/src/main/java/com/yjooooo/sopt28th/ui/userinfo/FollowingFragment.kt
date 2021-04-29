@@ -14,6 +14,7 @@ class FollowingFragment : BindingFragment<FragmentFollowingBinding>(R.layout.fra
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        super.onCreateView(inflater, container, savedInstanceState)
         return binding.root
     }
 }

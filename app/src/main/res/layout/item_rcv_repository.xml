@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="repoData"
+            type="com.yjooooo.sopt28th.ui.home.model.RepoData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rcv_repo_constraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="24dp"
+            android:layout_marginStart="32dp"
+            app:layout_constraintBottom_toTopOf="@id/rcv_repo_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/rcv_repo_txt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                tools:text="@string/item_rcv_repo_title"
+                android:text="@{repoData.repoName}"
+                android:textColor="@color/base_text_gray"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/rcv_repo_txt_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                tools:text="@string/item_rcv_repo_info"
+                android:text="@{repoData.repoInfo}"
+                android:textColor="@color/base_text_light_gray"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/rcv_repo_txt_title"
+                app:layout_constraintTop_toBottomOf="@id/rcv_repo_txt_title" />
+
+            <TextView
+                android:id="@+id/rcv_repo_txt_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                tools:text="@string/item_rcv_repo_language"
+                android:text="@{repoData.repoLanguage}"
+                android:textColor="@color/base_text_light_gray"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/rcv_repo_txt_title"
+                app:layout_constraintTop_toBottomOf="@id/rcv_repo_txt_info" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/rcv_repo_view"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/rcv_repo_view_gray"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
