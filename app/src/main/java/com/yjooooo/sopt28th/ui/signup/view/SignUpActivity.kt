@@ -63,7 +63,7 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>(R.layout.activity_
     private fun setIsSignUpObserve() {
         signUpViewModel.isSignUp.observe(this) { isSignUp ->
             if (isSignUp) {
-                toastMessageUtil("${signUpViewModel.nickname}님 회원가입 되셨습니다.")
+                toastMessageUtil("${signUpViewModel.nickname.value}님 회원가입 되셨습니다.")
                 val intent = Intent()
                 with(intent) {
                     putExtra("id", signUpViewModel.email.value.toString())
@@ -76,5 +76,4 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>(R.layout.activity_
             }
         }
     }
-
 }

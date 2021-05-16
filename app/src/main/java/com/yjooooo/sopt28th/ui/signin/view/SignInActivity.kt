@@ -87,7 +87,7 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
     private fun setIsSignInObserve() {
         signInViewModel.isSignIn.observe(this) { isSignIn ->
             if (isSignIn) {
-                toastMessageUtil(signInViewModel.nickname.value.toString() + "님 로그인되었습니다.")
+                toastMessageUtil("${signInViewModel.nickname.value}님 로그인되었습니다.")
                 startActivity(Intent(this, HomeActivity::class.java))
             } else {
                 toastMessageUtil("아이디/비밀번호를 확인해주세요!")

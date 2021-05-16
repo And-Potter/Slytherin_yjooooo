@@ -1,4 +1,106 @@
-# 🚩2nd Week
+# 🚩4th Seminar
+
+### 🎥실행영상
+
+<div>
+  <img height="400" src="https://user-images.githubusercontent.com/68374234/118389227-d49cde80-b663-11eb-8f0e-2d2573e649f4.gif">
+</div>
+
+
+
+### 📷Postman Test
+
+<div>
+  SignUp👉
+  <img height="400" src="https://user-images.githubusercontent.com/68374234/118389234-dbc3ec80-b663-11eb-8169-cf8d168e3c19.png">
+  SignIn👉
+  <img height="400" src="https://user-images.githubusercontent.com/68374234/118389232-db2b5600-b663-11eb-91e6-b4738611e361.png">
+</div>
+
+
+
+### ✔️과제 현황
+
+- Step1 - 로그인/회원가입 통신 구현하기
+
+  - RetrofitBuilder : Retrofit Interface 구현체
+
+    ```kotlin
+    object RetrofitBuilder {
+        private const val BASE_URL = "http://cherishserver.com"
+    
+        private val loginRetrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    
+        val loginService: LoginService = loginRetrofit.create(LoginService::class.java)
+    }
+    ```
+
+  - LoginService : 회원가입, 로그인 서버 요청 동작 정의
+    => 다음 함수를 viewModelScope 내에서 사용하기 위해 suspend modifier 사용.
+
+    ```kotlin
+    interface LoginService {
+        @POST("/login/signin")
+        suspend fun postSignIn(
+            @Body requestSignIn: RequestSignIn
+        ): ResponseSignIn
+    
+        @POST("/login/signup")
+        suspend fun postSignUp(
+            @Body requestSignUp: RequestSignUp
+        ): ResponseSignUp
+    }
+    ```
+
+  - SignUpViewModel 에서 이름, 아이디, 비밀번호를 모두 입력했을 시(databinding과 observe통해서 null체크) 서버통신요청
+    => Dispatchers를 IO로 설정할 경우, livedata의 값 설정은 postValue을 이용하여 설정.
+
+    ```kotlin
+    fun requestSignUp() = viewModelScope.launch {
+        try {
+            RetrofitBuilder.loginService.postSignUp(
+                RequestSignUp(
+                    birth = "none",
+                    email = email.value!!,
+                    nickname = nickname.value!!,
+                    password = password.value!!,
+                    phone = "none",
+                    sex = "none"
+                )
+            )
+            _isSignUp.postValue(true)
+        } catch (e: HttpException) {
+            _isSignUp.postValue(false)
+        }
+    }
+    ```
+
+  - SignInViewModel 에서 아이디, 비밀번호를 모두 입력했을 시(databinding과 observe통해서 null체크) 서버통신요청
+    => Dispatchers를 IO로 설정할 경우, livedata의 값 설정은 postValue을 이용하여 설정.
+
+    ```kotlin
+    fun requestSignIn() = viewModelScope.launch {
+        try {
+            val responseSignIn = RetrofitBuilder.loginService.postSignIn(
+                RequestSignIn(
+                    email = email.value!!,
+                    password = password.value!!
+                )
+            )
+            _nickname.postValue(responseSignIn.data.userNickname)
+            _isSignIn.postValue(true)
+        } catch (e: HttpException) {
+            _isSignIn.postValue(false)
+        }
+    }
+    ```
+
+
+
+# 🚩2nd Seminar
 
 
 ### 🎥실행영상
@@ -52,7 +154,7 @@
 
 
 
-# 🚩1st Week
+# 🚩1st Seminar
 
 
 ### 🎥실행영상
