@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.yjooooo.sopt28th.data.api.RetrofitBuilder
 import com.yjooooo.sopt28th.data.model.RequestSignUp
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
@@ -22,7 +23,7 @@ class SignUpViewModel : ViewModel() {
     val isUserInfoNotNull: LiveData<Boolean>
         get() = _isUserInfoNotNull
 
-    fun requestSignUp() = viewModelScope.launch {
+    fun requestSignUp() = viewModelScope.launch(Dispatchers.IO) {
         try {
             RetrofitBuilder.loginService.postSignUp(
                 RequestSignUp(
