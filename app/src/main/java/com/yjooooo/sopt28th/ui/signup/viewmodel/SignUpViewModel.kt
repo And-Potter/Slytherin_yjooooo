@@ -28,9 +28,9 @@ class SignUpViewModel : ViewModel() {
             RetrofitBuilder.loginService.postSignUp(
                 RequestSignUp(
                     birth = "none",
-                    email = email.value!!,
-                    nickname = nickname.value!!,
-                    password = password.value!!,
+                    email = requireNotNull(email.value),
+                    nickname = requireNotNull(nickname.value),
+                    password = requireNotNull(password.value),
                     phone = "none",
                     sex = "none"
                 )

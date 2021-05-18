@@ -30,8 +30,8 @@ class SignInViewModel : ViewModel() {
         try {
             val responseSignIn = RetrofitBuilder.loginService.postSignIn(
                 RequestSignIn(
-                    email = email.value!!,
-                    password = password.value!!
+                    email = requireNotNull(email.value),
+                    password = requireNotNull(password.value)
                 )
             )
             _nickname.postValue(responseSignIn.data.userNickname)
