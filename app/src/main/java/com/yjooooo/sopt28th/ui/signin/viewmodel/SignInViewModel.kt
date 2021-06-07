@@ -44,4 +44,9 @@ class SignInViewModel : ViewModel() {
     fun checkIsNotNull() {
         _isUserInfoNotNull.value = !email.value.isNullOrEmpty() && !password.value.isNullOrEmpty()
     }
+
+    fun autoSetUserInfo(id:String, pw:String){
+        email.value = id
+        password.value = pw
+    }
 }

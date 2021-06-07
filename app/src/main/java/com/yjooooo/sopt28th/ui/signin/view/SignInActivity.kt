@@ -31,7 +31,11 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
         binding.signInViewModel = signInViewModel
         binding.lifecycleOwner = this
         if (UserAuthStorage.hasUserData(this@SignInActivity)) {
-            goMainAfterSignIn(UserAuthStorage.getUserId(this@SignInActivity))
+            signInViewModel.autoSetUserInfo(
+                UserAuthStorage.getUserId(this@SignInActivity),
+                UserAuthStorage.getUserPw(this@SignInActivity)
+            )
+            signInViewModel.checkIsNotNull()
         }
         setOnSignUpBtnClick()
         setIsUserInfoNotNullObserve()
@@ -96,16 +100,12 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
                     requireNotNull(signInViewModel.email.value),
                     requireNotNull(signInViewModel.password.value)
                 )
-                goMainAfterSignIn(signInViewModel.nickname.value.toString())
+                toastMessageUtil("${signInViewModel.nickname.value}님 로그인되었습니다.")
+                startActivity(Intent(this, HomeActivity::class.java))
+                finish()
             } else {
                 toastMessageUtil("아이디/비밀번호를 확인해주세요!")
             }
         }
-    }
-
-    private fun goMainAfterSignIn(id: String) {
-        toastMessageUtil("${id}님 로그인되었습니다.")
-        startActivity(Intent(this, HomeActivity::class.java))
-        finish()
     }
 }

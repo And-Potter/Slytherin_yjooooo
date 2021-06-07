@@ -14,7 +14,7 @@ object UserAuthStorage {
         )
         sharedPreferences.edit()
             .putString(USER_ID, id)
-            .putString(USER_PW, id)
+            .putString(USER_PW, pw)
             .apply()
     }
 
