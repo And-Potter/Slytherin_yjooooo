@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My GitHuby</string>
+    <string name="app_name">My GitHub</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="app_logo">app logo</string>
     <string name="id_hint">ID를 입력해주세요</string>

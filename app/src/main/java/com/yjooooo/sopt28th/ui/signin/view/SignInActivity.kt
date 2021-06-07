@@ -7,6 +7,7 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import com.yjooooo.sopt28th.R
+import com.yjooooo.sopt28th.data.model.UserAuthStorage
 import com.yjooooo.sopt28th.databinding.ActivitySignInBinding
 import com.yjooooo.sopt28th.ui.base.BindingActivity
 import com.yjooooo.sopt28th.ui.home.view.HomeActivity
@@ -29,6 +30,9 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
         StatusBarUtil.setStatusBar(this, resources.getColor(R.color.white, null))
         binding.signInViewModel = signInViewModel
         binding.lifecycleOwner = this
+        if (UserAuthStorage.hasUserData(this@SignInActivity)) {
+            goMainAfterSignIn(UserAuthStorage.getUserId(this@SignInActivity))
+        }
         setOnSignUpBtnClick()
         setIsUserInfoNotNullObserve()
         setIsSignInObserve()
@@ -87,11 +91,21 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
     private fun setIsSignInObserve() {
         signInViewModel.isSignIn.observe(this) { isSignIn ->
             if (isSignIn) {
-                toastMessageUtil("${signInViewModel.nickname.value}님 로그인되었습니다.")
-                startActivity(Intent(this, HomeActivity::class.java))
+                UserAuthStorage.saveUserIdPw(
+                    this@SignInActivity,
+                    requireNotNull(signInViewModel.email.value),
+                    requireNotNull(signInViewModel.password.value)
+                )
+                goMainAfterSignIn(signInViewModel.nickname.value.toString())
             } else {
                 toastMessageUtil("아이디/비밀번호를 확인해주세요!")
             }
         }
+    }
+
+    private fun goMainAfterSignIn(id: String) {
+        toastMessageUtil("${id}님 로그인되었습니다.")
+        startActivity(Intent(this, HomeActivity::class.java))
+        finish()
     }
 }
