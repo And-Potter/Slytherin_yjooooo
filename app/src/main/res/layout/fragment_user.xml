@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        tools:context=".ui.userinfo.UserFragment">
+        tools:context=".ui.userinfo.view.UserFragment">
 
         <TextView
             android:id="@+id/txt_user_name"

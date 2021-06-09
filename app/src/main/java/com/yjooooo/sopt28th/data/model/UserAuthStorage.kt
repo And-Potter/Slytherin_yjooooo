@@ -36,4 +36,10 @@ object UserAuthStorage {
         return !sharedPreferences.getString(USER_ID, "").isNullOrBlank() &&
                 !sharedPreferences.getString(USER_PW, "").isNullOrBlank()
     }
+
+    fun clearData() {
+        sharedPreferences.edit()
+            .clear()
+            .apply()
+    }
 }

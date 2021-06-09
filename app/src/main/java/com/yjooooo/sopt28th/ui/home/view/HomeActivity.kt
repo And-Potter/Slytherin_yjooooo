@@ -9,7 +9,7 @@ import com.yjooooo.sopt28th.databinding.ActivityHomeBinding
 import com.yjooooo.sopt28th.ui.base.BindingActivity
 import com.yjooooo.sopt28th.ui.home.adapter.RepoRcvAdapter
 import com.yjooooo.sopt28th.ui.home.viewmodel.HomeViewModel
-import com.yjooooo.sopt28th.ui.userinfo.UserInfoActivity
+import com.yjooooo.sopt28th.ui.userinfo.view.UserInfoActivity
 import com.yjooooo.sopt28th.util.StatusBarUtil
 
 class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home) {

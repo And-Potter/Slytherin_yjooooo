@@ -14,7 +14,7 @@
         android:theme="@style/Theme.28thSOPT"
         android:usesCleartextTraffic="true">
         <activity android:name=".ui.home.view.HomeActivity" />
-        <activity android:name=".ui.userinfo.UserInfoActivity" />
+        <activity android:name=".ui.userinfo.view.UserInfoActivity" />
         <activity android:name=".ui.signup.view.SignUpActivity" />
         <activity android:name=".ui.signin.view.SignInActivity">
             <intent-filter>
