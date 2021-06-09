@@ -21,4 +21,8 @@
     <string name="home_profile_name">Yunjoo Son</string>
     <string name="home_profile_id">yjooooo</string>
     <string name="sign_up_title">회원가입</string>
+    <string name="user_btn_introduce">introduce</string>
+    <string name="user_btn_following">follow, follower</string>
+    <string name="user_btn_organization">organization</string>
+    <string name="user_btn_logout">logout</string>
 </resources>

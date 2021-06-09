@@ -22,4 +22,6 @@
     <color name="sign_up_title_gray">#333333</color>
     <color name="home_profile_background_purple">#BFA8FB</color>
     <color name="rcv_repo_view_gray">#E0E0E0</color>
+    <color name="user_btn_purple">#AE92F8</color>
+    <color name="user_txt_gray">#828282</color>
 </resources>

@@ -14,9 +14,9 @@ class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>(R.layout.activ
     }
 
     private fun setFollowingFragmentToWhole() {
-        val followingFragment = FollowingFragment()
+        val userFragment = UserFragment()
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.user_info_fragment_container, followingFragment)
+        transaction.add(R.id.user_info_fragment_container, userFragment)
         transaction.commit()
     }
 }

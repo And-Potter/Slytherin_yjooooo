@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.yjooooo.sopt28th.R
-import com.yjooooo.sopt28th.databinding.FragmentFollowingBinding
+import com.yjooooo.sopt28th.databinding.FragmentUserBinding
 import com.yjooooo.sopt28th.ui.base.BindingFragment
 
-class FollowingFragment : BindingFragment<FragmentFollowingBinding>(R.layout.fragment_following) {
+class UserFragment : BindingFragment<FragmentUserBinding>(R.layout.fragment_user) {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
