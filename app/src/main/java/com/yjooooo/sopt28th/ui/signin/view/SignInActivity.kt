@@ -30,13 +30,7 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
         StatusBarUtil.setStatusBar(this, resources.getColor(R.color.white, null))
         binding.signInViewModel = signInViewModel
         binding.lifecycleOwner = this
-        if (UserAuthStorage.hasUserData(this@SignInActivity)) {
-            signInViewModel.autoSetUserInfo(
-                UserAuthStorage.getUserId(this@SignInActivity),
-                UserAuthStorage.getUserPw(this@SignInActivity)
-            )
-            signInViewModel.checkIsNotNull()
-        }
+        setAutoSignIn()
         setOnSignUpBtnClick()
         setIsUserInfoNotNullObserve()
         setIsSignInObserve()
@@ -65,6 +59,16 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
     override fun onDestroy() {
         super.onDestroy()
         Log.d("LifeCycle", "SignIn_onDestroy")
+    }
+
+    private fun setAutoSignIn() {
+        if (UserAuthStorage.hasUserData()) {
+            signInViewModel.autoSetUserInfo(
+                UserAuthStorage.getUserId(),
+                UserAuthStorage.getUserPw()
+            )
+            signInViewModel.checkIsNotNull()
+        }
     }
 
     private fun setOnSignUpBtnClick() {
@@ -96,7 +100,6 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
         signInViewModel.isSignIn.observe(this) { isSignIn ->
             if (isSignIn) {
                 UserAuthStorage.saveUserIdPw(
-                    this@SignInActivity,
                     requireNotNull(signInViewModel.email.value),
                     requireNotNull(signInViewModel.password.value)
                 )
