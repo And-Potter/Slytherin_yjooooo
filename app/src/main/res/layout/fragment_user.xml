@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="userInfoViewModel"
             type="com.yjooooo.sopt28th.ui.userinfo.viewmodel.UserInfoViewModel" />
@@ -42,9 +43,9 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_user_profile"
+            setSrcFromUrl="@{userInfoViewModel.imgUrl}"
             android:layout_width="132dp"
             android:layout_height="132dp"
-            setSrcFromUrl="@{userInfoViewModel.imgUrl}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,6 +60,7 @@
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/user_btn_purple"
             android:text="@string/user_btn_following"
+            android:textColor="@color/white"
             android:textSize="16sp"
             app:cornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -73,6 +75,7 @@
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/user_btn_purple"
             android:text="@string/user_btn_organization"
+            android:textColor="@color/white"
             android:textSize="16sp"
             app:cornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -87,6 +90,7 @@
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/user_btn_purple"
             android:text="@string/user_btn_logout"
+            android:textColor="@color/white"
             android:textSize="16sp"
             app:cornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
