@@ -52,20 +52,6 @@
             app:layout_constraintVertical_bias="0.1" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_user_introduce"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/user_btn_purple"
-            android:text="@string/user_btn_introduce"
-            android:textSize="16sp"
-            app:cornerRadius="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_user_id" />
-
-        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_user_following"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -77,7 +63,7 @@
             app:cornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_user_introduce" />
+            app:layout_constraintTop_toBottomOf="@id/txt_user_id" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_user_organization"
