@@ -1,5 +1,6 @@
 package com.yjooooo.sopt28th.ui.userinfo.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +25,7 @@ class UserFragment : BindingFragment<FragmentUserBinding>(R.layout.fragment_user
         binding.lifecycleOwner = this
         userInfoViewModel.getUserInfo()
         setOnLogOutBtnClick()
+        setOnOrganizationBtnClick()
         return binding.root
     }
 
@@ -31,6 +33,12 @@ class UserFragment : BindingFragment<FragmentUserBinding>(R.layout.fragment_user
         binding.btnUserLogout.setOnClickListener {
             UserAuthStorage.clearData()
             userInfoViewModel.setIsLogout(true)
+        }
+    }
+
+    private fun setOnOrganizationBtnClick() {
+        binding.btnUserOrganization.setOnClickListener {
+            startActivity(Intent(requireContext(), UserOrganizationActivity::class.java))
         }
     }
 }
