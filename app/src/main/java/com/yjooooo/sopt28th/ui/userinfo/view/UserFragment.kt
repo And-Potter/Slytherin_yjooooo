@@ -20,6 +20,9 @@ class UserFragment : BindingFragment<FragmentUserBinding>(R.layout.fragment_user
         savedInstanceState: Bundle?
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
+        binding.userInfoViewModel = userInfoViewModel
+        binding.lifecycleOwner = this
+        userInfoViewModel.getUserInfo()
         setOnLogOutBtnClick()
         return binding.root
     }

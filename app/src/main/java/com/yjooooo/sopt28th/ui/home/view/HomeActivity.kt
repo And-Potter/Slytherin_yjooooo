@@ -18,6 +18,9 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
         super.onCreate(savedInstanceState)
         StatusBarUtil.setStatusBar(this, resources.getColor(R.color.main_color_purple, null))
         Log.d("LifeCycle", "Home_onCreate")
+        binding.homeViewModel = homeViewModel
+        binding.lifecycleOwner = this
+        homeViewModel.getUserInfo()
         homeViewModel.addRepoList()
         setRepoRcvAdapter()
         setRepoListObserver()
