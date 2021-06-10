@@ -1,7 +1,7 @@
 package com.yjooooo.sopt28th.data.api
 
+import com.yjooooo.sopt28th.ui.home.model.ResponseRepository
 import com.yjooooo.sopt28th.ui.userinfo.model.ResponseFollow
-import com.yjooooo.sopt28th.ui.userinfo.model.ResponseRepository
 import com.yjooooo.sopt28th.ui.userinfo.model.ResponseUserInfo
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -15,7 +15,7 @@ interface GitHubService {
     @GET("/users/{username}/repos")
     suspend fun getRepository(
         @Path("username") username: String
-    ): ResponseRepository
+    ): List<ResponseRepository>
 
     @GET("/users/{username}/followers")
     suspend fun getFollowers(

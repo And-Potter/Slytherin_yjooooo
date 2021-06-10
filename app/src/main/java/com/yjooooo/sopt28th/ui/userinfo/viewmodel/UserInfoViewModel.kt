@@ -1,6 +1,5 @@
 package com.yjooooo.sopt28th.ui.userinfo.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -30,13 +29,10 @@ class UserInfoViewModel : ViewModel() {
         try {
             val responseUserInfo =
                 RetrofitBuilder.gitHubService.getUserInfo(username = UserAuthStorage.getUserId())
-            Log.d("tag_userInfo", responseUserInfo.name)
-            Log.d("tag_userInfo", responseUserInfo.login)
             _userName.postValue(responseUserInfo.name)
             _userId.postValue(responseUserInfo.login)
             _imgUrl.postValue(responseUserInfo.avatarUrl)
         } catch (e: HttpException) {
-
         }
     }
 }

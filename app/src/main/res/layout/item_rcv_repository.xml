@@ -7,7 +7,7 @@
 
         <variable
             name="repoData"
-            type="com.yjooooo.sopt28th.ui.home.model.RepoData" />
+            type="com.yjooooo.sopt28th.ui.home.model.ResponseRepository" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,7 +32,7 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 tools:text="@string/item_rcv_repo_title"
-                android:text="@{repoData.repoName}"
+                android:text="@{repoData.name}"
                 android:textColor="@color/base_text_gray"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -47,7 +47,7 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 tools:text="@string/item_rcv_repo_info"
-                android:text="@{repoData.repoInfo}"
+                android:text="@{repoData.description}"
                 android:textColor="@color/base_text_light_gray"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@id/rcv_repo_txt_title"
@@ -61,7 +61,7 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 tools:text="@string/item_rcv_repo_language"
-                android:text="@{repoData.repoLanguage}"
+                android:text="@{repoData.language}"
                 android:textColor="@color/base_text_light_gray"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@id/rcv_repo_txt_title"

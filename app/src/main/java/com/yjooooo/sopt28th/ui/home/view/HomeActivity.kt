@@ -21,7 +21,7 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
         binding.homeViewModel = homeViewModel
         binding.lifecycleOwner = this
         homeViewModel.getUserInfo()
-        homeViewModel.addRepoList()
+        homeViewModel.getRepository()
         setRepoRcvAdapter()
         setRepoListObserver()
         setOnUserInfoBtnClick()
