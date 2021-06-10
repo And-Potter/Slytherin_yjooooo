@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="organizationData"
-            type="com.yjooooo.sopt28th.ui.userinfo.model.ResponseOrganization" />
+            name="followData"
+            type="com.yjooooo.sopt28th.ui.userinfo.model.ResponseFollow" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,12 +15,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp">
 
-        <ImageView
-            android:id="@+id/rcv_organization_img"
-            setSrcFromUrl="@{organizationData.avatarUrl}"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginVertical="24dp"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/rcv_follow_img"
+            setSrcFromUrl="@{followData.avatarUrl}"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginVertical="20dp"
             android:layout_marginStart="32dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,18 +35,18 @@
             android:layout_marginEnd="32dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="@{organizationData.login}"
+            android:text="@{followData.login}"
             android:textColor="@color/base_text_gray"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/rcv_organization_img"
+            app:layout_constraintBottom_toBottomOf="@id/rcv_follow_img"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/rcv_organization_img"
-            app:layout_constraintTop_toTopOf="@id/rcv_organization_img"
+            app:layout_constraintStart_toEndOf="@id/rcv_follow_img"
+            app:layout_constraintTop_toTopOf="@id/rcv_follow_img"
             tools:text="@string/item_rcv_repo_title" />
 
         <View
-            android:id="@+id/rcv_organization_view"
+            android:id="@+id/rcv_follow_view"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@color/rcv_repo_view_gray"

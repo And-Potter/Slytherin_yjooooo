@@ -26,6 +26,7 @@ class UserFragment : BindingFragment<FragmentUserBinding>(R.layout.fragment_user
         userInfoViewModel.getUserInfo()
         setOnLogOutBtnClick()
         setOnOrganizationBtnClick()
+        setOnFollowBtnClick()
         return binding.root
     }
 
@@ -39,6 +40,12 @@ class UserFragment : BindingFragment<FragmentUserBinding>(R.layout.fragment_user
     private fun setOnOrganizationBtnClick() {
         binding.btnUserOrganization.setOnClickListener {
             startActivity(Intent(requireContext(), UserOrganizationActivity::class.java))
+        }
+    }
+
+    private fun setOnFollowBtnClick() {
+        binding.btnUserFollowing.setOnClickListener {
+            startActivity(Intent(requireContext(), UserFollowActivity::class.java))
         }
     }
 }

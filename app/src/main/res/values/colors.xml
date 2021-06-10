@@ -25,4 +25,5 @@
     <color name="user_btn_purple">#AE92F8</color>
     <color name="user_txt_gray">#828282</color>
     <color name="organization_title_gray">#333333</color>
+    <color name="follow_tab_txt_gray">#333333</color>
 </resources>
