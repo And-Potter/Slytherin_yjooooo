@@ -1,3 +1,57 @@
+# 🚩Additional Task
+
+### 🎥실행 영상
+
+<div>
+  <img height="400" src="https://user-images.githubusercontent.com/68374234/121702272-b2846800-cb0c-11eb-8738-af3ceed31a81.gif">
+  <img height="400" src="https://user-images.githubusercontent.com/68374234/121702414-d21b9080-cb0c-11eb-8858-047c536f238f.gif">
+</div>
+
+
+
+### ✔️과제 현황
+
+- 4th Week 2-1 Github Api 사용 서버 연결
+
+  - Github Repository
+
+  - Github User 정보
+
+  - Github Following, Follower
+
+  - Github Organization
+
+    ```kotlin
+    interface GitHubService {
+        @GET("/users/{username}")
+        suspend fun getUserInfo(
+            @Path("username") username: String
+        ): ResponseUserInfo
+    
+        @GET("/users/{username}/repos")
+        suspend fun getRepository(
+            @Path("username") username: String
+        ): List<ResponseRepository>
+    
+        @GET("/users/{username}/orgs")
+        suspend fun getOrganization(
+            @Path("username") username: String
+        ): List<ResponseOrganization>
+    
+        @GET("/users/{username}/followers")
+        suspend fun getFollowers(
+            @Path("username") username: String
+        ): List<ResponseFollow>
+    
+        @GET("/users/{username}/following")
+        suspend fun getFollowings(
+            @Path("username") username: String
+        ): List<ResponseFollow>
+    }
+    ```
+
+
+
 # 🚩7th Seminar
 
 ### 🎥실행 영상
