@@ -9,7 +9,7 @@ import com.yjooooo.sopt28th.databinding.ActivityHomeBinding
 import com.yjooooo.sopt28th.ui.base.BindingActivity
 import com.yjooooo.sopt28th.ui.home.adapter.RepoRcvAdapter
 import com.yjooooo.sopt28th.ui.home.viewmodel.HomeViewModel
-import com.yjooooo.sopt28th.ui.userinfo.UserInfoActivity
+import com.yjooooo.sopt28th.ui.userinfo.view.UserInfoActivity
 import com.yjooooo.sopt28th.util.StatusBarUtil
 
 class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home) {
@@ -18,7 +18,10 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
         super.onCreate(savedInstanceState)
         StatusBarUtil.setStatusBar(this, resources.getColor(R.color.main_color_purple, null))
         Log.d("LifeCycle", "Home_onCreate")
-        homeViewModel.addRepoList()
+        binding.homeViewModel = homeViewModel
+        binding.lifecycleOwner = this
+        homeViewModel.getUserInfo()
+        homeViewModel.getRepository()
         setRepoRcvAdapter()
         setRepoListObserver()
         setOnUserInfoBtnClick()

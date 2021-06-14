@@ -1,6 +1,142 @@
+# 🚩Additional Task
+
+### 🎥실행 영상
+
+<div>
+  <img height="400" src="https://user-images.githubusercontent.com/68374234/121702272-b2846800-cb0c-11eb-8738-af3ceed31a81.gif">
+  <img height="400" src="https://user-images.githubusercontent.com/68374234/121702414-d21b9080-cb0c-11eb-8858-047c536f238f.gif">
+</div>
+
+
+
+### ✔️과제 현황
+
+- 4th Week 2-1 Github Api 사용 서버 연결
+
+  - Github Repository
+
+  - Github User 정보
+
+  - Github Following, Follower
+
+  - Github Organization
+
+    ```kotlin
+    interface GitHubService {
+        @GET("/users/{username}")
+        suspend fun getUserInfo(
+            @Path("username") username: String
+        ): ResponseUserInfo
+    
+        @GET("/users/{username}/repos")
+        suspend fun getRepository(
+            @Path("username") username: String
+        ): List<ResponseRepository>
+    
+        @GET("/users/{username}/orgs")
+        suspend fun getOrganization(
+            @Path("username") username: String
+        ): List<ResponseOrganization>
+    
+        @GET("/users/{username}/followers")
+        suspend fun getFollowers(
+            @Path("username") username: String
+        ): List<ResponseFollow>
+    
+        @GET("/users/{username}/following")
+        suspend fun getFollowings(
+            @Path("username") username: String
+        ): List<ResponseFollow>
+    }
+    ```
+
+
+
+# 🚩7th Seminar
+
+### 🎥실행 영상
+
+<div>
+  <img height="400" src="https://user-images.githubusercontent.com/68374234/121384701-77a2f880-c983-11eb-9413-d23b9ddd892c.gif">
+</div>
+
+
+
+### ✔️과제 현황
+
+- Step1
+
+  - SharedPreference 사용해서 자동로그인 구현하기
+
+    - SharedPreference
+
+    - 자동로그인 구현
+
+      ```kotlin
+      override fun onCreate(savedInstanceState: Bundle?) {
+              super.onCreate(savedInstanceState)
+              setAutoSignIn()
+              setIsSignInObserve()
+      }
+      
+      private fun setAutoSignIn() {
+          if (UserAuthStorage.hasUserData()) {
+      			signInViewModel.autoSetUserInfo(UserAuthStorage.getUserId(), UserAuthStorage.getUserPw())
+      			signInViewModel.checkIsNotNull()
+      		}
+      }
+      private fun setIsSignInObserve() {
+          signInViewModel.isSignIn.observe(this) { isSignIn ->
+              if (isSignIn) {
+                  UserAuthStorage.saveUserIdPw(
+                      requireNotNull(signInViewModel.email.value),
+                      requireNotNull(signInViewModel.password.value)
+                  )
+                  toastMessageUtil("${signInViewModel.nickname.value}님 로그인되었습니다.")
+                  startActivity(Intent(this, HomeActivity::class.java))
+                  finish()
+              } else {
+                  toastMessageUtil("아이디/비밀번호를 확인해주세요!")
+              }
+          }
+      }
+      ```
+
+  - 로그아웃 시 SharedPreference clear하기
+
+    - SharedPreference 삭제
+
+    - 로그아웃
+
+      ```kotlin
+      // UserFragment.kt
+      private fun setOnLogOutBtnClick() {
+          binding.btnUserLogout.setOnClickListener {
+              UserAuthStorage.clearData()
+              userInfoViewModel.setIsLogout(true)
+          }
+      }
+      
+      //UserInfoActivity.kt
+      private fun setIsLogoutObserve() {
+      		userInfoViewModel.isLogout.observe(this) { isLogout ->
+      				if (isLogout) {
+                      val intent = Intent(this, SignInActivity::class.java)
+                      intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                      startActivity(intent)
+                      Toast.makeText(this, "로그아웃되었습니다.", Toast.LENGTH_LONG).show()
+                      finish()
+      				}
+      		}
+      }
+      ```
+
+
+
 # 🚩4th Seminar
 
-### 🎥실행영상
+### 🎥실행 영상
 
 <div>
   <img height="400" src="https://user-images.githubusercontent.com/68374234/118389227-d49cde80-b663-11eb-8f0e-2d2573e649f4.gif">
@@ -103,7 +239,7 @@
 # 🚩2nd Seminar
 
 
-### 🎥실행영상
+### 🎥실행 영상
 
 <div>
   <img height="400" src="https://user-images.githubusercontent.com/68374234/115982289-daf3e980-a5d4-11eb-8788-ab7f2593c57a.gif">
@@ -157,7 +293,7 @@
 # 🚩1st Seminar
 
 
-### 🎥실행영상
+### 🎥실행 영상
 
 <div>
   Login👉

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My GitHuby</string>
+    <string name="app_name">My GitHub</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="app_logo">app logo</string>
     <string name="id_hint">ID를 입력해주세요</string>
@@ -21,4 +21,9 @@
     <string name="home_profile_name">Yunjoo Son</string>
     <string name="home_profile_id">yjooooo</string>
     <string name="sign_up_title">회원가입</string>
+    <string name="user_btn_introduce">introduce</string>
+    <string name="user_btn_following">follow, follower</string>
+    <string name="user_btn_organization">organization</string>
+    <string name="user_btn_logout">logout</string>
+    <string name="organization_txt_title">ORGANIZATION</string>
 </resources>

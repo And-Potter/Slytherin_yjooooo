@@ -8,14 +8,17 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.yjooooo.sopt28th.R
 import com.yjooooo.sopt28th.databinding.ItemRcvRepositoryBinding
-import com.yjooooo.sopt28th.ui.home.model.RepoData
+import com.yjooooo.sopt28th.ui.home.model.ResponseRepository
 
 class RepoRcvAdapter :
-    ListAdapter<RepoData, RepoRcvAdapter.RepoRcvViewHolder>(RepoRcvDiffUtil()) {
+    ListAdapter<ResponseRepository, RepoRcvAdapter.RepoRcvViewHolder>(RepoRcvDiffUtil()) {
 
     class RepoRcvViewHolder(private val binding: ItemRcvRepositoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(repoData: RepoData) {
+        fun bind(repoData: ResponseRepository) {
+            if (repoData.language == null) {
+                repoData.language = "x"
+            }
             binding.repoData = repoData
         }
     }
@@ -31,11 +34,17 @@ class RepoRcvAdapter :
         return RepoRcvViewHolder(binding)
     }
 
-    private class RepoRcvDiffUtil : DiffUtil.ItemCallback<RepoData>() {
-        override fun areContentsTheSame(oldItem: RepoData, newItem: RepoData): Boolean =
+    private class RepoRcvDiffUtil : DiffUtil.ItemCallback<ResponseRepository>() {
+        override fun areContentsTheSame(
+            oldItem: ResponseRepository,
+            newItem: ResponseRepository
+        ): Boolean =
             oldItem == newItem
 
-        override fun areItemsTheSame(oldItem: RepoData, newItem: RepoData): Boolean =
-            oldItem.repoName == newItem.repoName
+        override fun areItemsTheSame(
+            oldItem: ResponseRepository,
+            newItem: ResponseRepository
+        ): Boolean =
+            oldItem.name == newItem.name
     }
 }

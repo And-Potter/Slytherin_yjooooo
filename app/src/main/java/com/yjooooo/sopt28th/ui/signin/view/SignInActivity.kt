@@ -7,6 +7,7 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import com.yjooooo.sopt28th.R
+import com.yjooooo.sopt28th.data.model.UserAuthStorage
 import com.yjooooo.sopt28th.databinding.ActivitySignInBinding
 import com.yjooooo.sopt28th.ui.base.BindingActivity
 import com.yjooooo.sopt28th.ui.home.view.HomeActivity
@@ -29,6 +30,7 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
         StatusBarUtil.setStatusBar(this, resources.getColor(R.color.white, null))
         binding.signInViewModel = signInViewModel
         binding.lifecycleOwner = this
+        setAutoSignIn()
         setOnSignUpBtnClick()
         setIsUserInfoNotNullObserve()
         setIsSignInObserve()
@@ -59,6 +61,16 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
         Log.d("LifeCycle", "SignIn_onDestroy")
     }
 
+    private fun setAutoSignIn() {
+        if (UserAuthStorage.hasUserData()) {
+            signInViewModel.autoSetUserInfo(
+                UserAuthStorage.getUserId(),
+                UserAuthStorage.getUserPw()
+            )
+            signInViewModel.checkIsNotNull()
+        }
+    }
+
     private fun setOnSignUpBtnClick() {
         binding.signInBtnSignUp.setOnClickListener {
             signUpActivityLauncher.launch(Intent(this, SignUpActivity::class.java))
@@ -87,8 +99,13 @@ class SignInActivity : BindingActivity<ActivitySignInBinding>(R.layout.activity_
     private fun setIsSignInObserve() {
         signInViewModel.isSignIn.observe(this) { isSignIn ->
             if (isSignIn) {
+                UserAuthStorage.saveUserIdPw(
+                    requireNotNull(signInViewModel.email.value),
+                    requireNotNull(signInViewModel.password.value)
+                )
                 toastMessageUtil("${signInViewModel.nickname.value}님 로그인되었습니다.")
                 startActivity(Intent(this, HomeActivity::class.java))
+                finish()
             } else {
                 toastMessageUtil("아이디/비밀번호를 확인해주세요!")
             }
